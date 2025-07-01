@@ -1,5 +1,9 @@
+import com.sun.tools.javac.Main;
+
 import java.awt.*;
 import java.awt.event.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 
@@ -122,6 +126,13 @@ class MyCircleCanvas extends JComponent {
 
     @Override
     public void paint(final Graphics g) {
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         g.drawOval(this.circle.getX() - this.circle.getRadius() / 2,
                 this.circle.getY() - this.circle.getRadius() / 2,
                 this.circle.getRadius(),
