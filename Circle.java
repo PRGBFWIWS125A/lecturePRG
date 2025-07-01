@@ -35,7 +35,7 @@ public class Circle {
     }
 
     public int getRadius() {
-        return this.x;
+        return this.radius;
     }
 
     public void setRadius(int radius) {
@@ -96,7 +96,7 @@ public class Circle {
                 this.radius+=10;
                 break;
             case SMALLER:
-                this.radius-=10;
+                this.setRadius(this.getRadius() - 10);
                 break;
         }
     }
