@@ -73,4 +73,8 @@ public class Circle {
     }
 
 
+    @Override
+    public String toString() {
+        return String.format("(%d|%d),%d",getX(),getY(),getRadius());
+    }
 }
