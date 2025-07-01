@@ -45,4 +45,32 @@ public class Circle {
             this.radius = radius;
         }
     }
+    
+    public static double size(final Circle... circles) {
+        double res = 0;
+        for (final Circle r : circles) {
+            res += r.singleSize();
+        }
+        return res;
+    }
+
+    private boolean containsOne(final Circle that) {
+        final double distance = Utility.distance(this.x, this.y, that.x, that.y);
+        return this.radius >= that.radius + distance;
+    }
+
+    private double singleSize() {
+        return this.radius * this.radius * Utility.PI;
+    }
+
+    public boolean contains(final Circle... others) {
+        for (final Circle o : others) {
+            if (!this.containsOne(o)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
 }
